@@ -1,0 +1,128 @@
+[gd_scene load_steps=3 format=3 uid="uid://s5jtgssf7pey"]
+
+[ext_resource type="Script" path="res://main_control.gd" id="1_ijmlw"]
+[ext_resource type="Script" path="res://rect.gd" id="1_xn5sa"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ijmlw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.54902, 0.745098, 0.698039, 1)
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -2
+
+[node name="Control" type="Control" parent="HSplitContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HSplitContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+color = Color(0.360784, 0.294118, 0.317647, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/Control"]
+layout_mode = 2
+offset_right = 200.0
+offset_bottom = 666.0
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="StartCellsCount" type="Label" parent="HSplitContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.709804, 0.384314, 1)
+text = "Starting cells: 0"
+text_overrun_behavior = 3
+
+[node name="GenerationsCount" type="Label" parent="HSplitContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.709804, 0.384314, 1)
+text = "Generations: 0"
+text_overrun_behavior = 3
+
+[node name="SettingsButton" type="Button" parent="HSplitContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="ColorRect" type="ColorRect" parent="HSplitContainer"]
+layout_mode = 2
+color = Color(0.94902, 0.921569, 0.74902, 1)
+script = ExtResource("1_xn5sa")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="SettingsPopup" type="PopupPanel" parent="."]
+position = Vector2i(80, 80)
+size = Vector2i(1120, 560)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPopup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsTitle" type="Label" parent="SettingsPopup/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsPopup/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="SelectThemeLabel" type="Label" parent="SettingsPopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Select Theme"
+
+[node name="OptionButton" type="OptionButton" parent="SettingsPopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Theme1"
+popup/item_0/id = 0
+popup/item_1/text = "Theme2"
+popup/item_1/id = 1
+
+[node name="CloseButton" type="Button" parent="SettingsPopup/VBoxContainer"]
+layout_mode = 2
+text = "Done"
+
+[connection signal="pressed" from="HSplitContainer/Control/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="HSplitContainer/ColorRect" method="_on_timer_timeout"]
+[connection signal="item_selected" from="SettingsPopup/VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_theme_option_button_item_selected"]
+[connection signal="pressed" from="SettingsPopup/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

@@ -1,0 +1,16 @@
+{
+	"ClassicDark": {
+		"ALIVE_CELL": [255, 255, 255],
+		"DEAD_CELL": [0, 0, 0],
+		"GAME_BG": [0, 0, 0],
+		"TOOLS_BG": [0, 0, 0],
+		"TOOLS_TEXT": [255, 255, 255]
+	},
+	"ClassicLight": {
+		"ALIVE_CELL": [0, 0, 0],
+		"DEAD_CELL": [200, 200, 200],
+		"GAME_BG": [200, 200, 200],
+		"TOOLS_BG": [200, 200, 200],
+		"TOOLS_TEXT": [0, 0, 0]
+	}
+}

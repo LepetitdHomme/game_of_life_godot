@@ -1,0 +1,246 @@
+[gd_scene load_steps=4 format=3 uid="uid://s5jtgssf7pey"]
+
+[ext_resource type="Script" path="res://main_control.gd" id="1_ijmlw"]
+[ext_resource type="Script" path="res://rect.gd" id="1_xn5sa"]
+[ext_resource type="PackedScene" uid="uid://buav3nvhodmvu" path="res://test_graph.tscn" id="2_odf42"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ijmlw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.54902, 0.745098, 0.698039, 1)
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -2
+
+[node name="Control" type="Control" parent="HSplitContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HSplitContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="PauseButton" type="Button" parent="HSplitContainer/Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+toggle_mode = true
+text = "Pause"
+icon_alignment = 1
+
+[node name="SettingsButton" type="Button" parent="HSplitContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="ResetButton" type="Button" parent="HSplitContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Reset"
+icon_alignment = 1
+
+[node name="RandomButton" type="Button" parent="HSplitContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Random"
+icon_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="CellCountsGraph" parent="HSplitContainer/Control/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_odf42")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StartCellsCount" type="Label" parent="HSplitContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Starting cells: 0"
+text_overrun_behavior = 3
+
+[node name="GenerationsCount" type="Label" parent="HSplitContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Generations: 0"
+text_overrun_behavior = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/Control/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Number of neighbors
+to become alive"
+clip_text = true
+max_lines_visible = 5
+
+[node name="ReferenceRect" type="ReferenceRect" parent="HSplitContainer/Control/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="HSplitContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ReferenceRect"]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 44.0
+offset_right = 45.0
+offset_bottom = 68.0
+rotation = -1.5708
+
+[node name="CheckButton2" type="CheckButton" parent="HSplitContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ReferenceRect"]
+layout_mode = 2
+offset_left = 21.0
+offset_top = 44.0
+offset_right = 65.0
+offset_bottom = 68.0
+rotation = -1.5708
+
+[node name="CheckButton3" type="CheckButton" parent="HSplitContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ReferenceRect"]
+layout_mode = 2
+offset_left = 41.0
+offset_top = 44.0
+offset_right = 85.0
+offset_bottom = 68.0
+rotation = -1.5708
+
+[node name="CheckButton4" type="CheckButton" parent="HSplitContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ReferenceRect"]
+layout_mode = 2
+offset_left = 61.0
+offset_top = 44.0
+offset_right = 105.0
+offset_bottom = 68.0
+rotation = -1.5708
+
+[node name="CheckButton5" type="CheckButton" parent="HSplitContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ReferenceRect"]
+layout_mode = 2
+offset_left = 81.0
+offset_top = 44.0
+offset_right = 125.0
+offset_bottom = 68.0
+rotation = -1.5708
+
+[node name="CheckButton6" type="CheckButton" parent="HSplitContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ReferenceRect"]
+layout_mode = 2
+offset_left = 101.0
+offset_top = 44.0
+offset_right = 145.0
+offset_bottom = 68.0
+rotation = -1.5708
+
+[node name="CheckButton7" type="CheckButton" parent="HSplitContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ReferenceRect"]
+layout_mode = 2
+offset_left = 121.0
+offset_top = 44.0
+offset_right = 165.0
+offset_bottom = 68.0
+rotation = -1.5708
+
+[node name="CheckButton8" type="CheckButton" parent="HSplitContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ReferenceRect"]
+layout_mode = 2
+offset_left = 141.0
+offset_top = 44.0
+offset_right = 185.0
+offset_bottom = 68.0
+rotation = -1.5708
+
+[node name="ColorRect" type="ColorRect" parent="HSplitContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_xn5sa")
+
+[node name="SettingsPopup" type="PopupPanel" parent="."]
+position = Vector2i(375, 70)
+size = Vector2i(530, 580)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPopup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsTitle" type="Label" parent="SettingsPopup/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsPopup/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="SelectThemeLabel" type="Label" parent="SettingsPopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Select Theme"
+
+[node name="OptionButton" type="OptionButton" parent="SettingsPopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Theme1"
+popup/item_1/text = "Theme2"
+popup/item_1/id = 1
+
+[node name="CloseButton" type="Button" parent="SettingsPopup/VBoxContainer"]
+layout_mode = 2
+text = "Done"
+
+[node name="FullScreenLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FullScreenLayer"]
+visible = false
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.776471, 0.129412, 0.729412, 0.494118)
+
+[connection signal="pressed" from="HSplitContainer/Control/MarginContainer/VBoxContainer/PauseButton" to="HSplitContainer/ColorRect" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="HSplitContainer/Control/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="HSplitContainer/Control/MarginContainer/VBoxContainer/ResetButton" to="HSplitContainer/ColorRect" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="HSplitContainer/Control/MarginContainer/VBoxContainer/RandomButton" to="HSplitContainer/ColorRect" method="_on_random_button_pressed"]
+[connection signal="item_selected" from="SettingsPopup/VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_theme_option_button_item_selected"]
+[connection signal="pressed" from="SettingsPopup/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
